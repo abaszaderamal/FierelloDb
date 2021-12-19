@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Category> 
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Categories</h4>
+             
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Is Deleted</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var category in Model)
+                            {
+                            <tr>
+                                <td> @category.Id </td>
+                                <td> @category.Name </td>
+                                <td>
+                                    @if (@category.IsDeleted)
+                                    {
+                                        <label class="badge badge-danger">Is Deleted</label>
+                                    }
+                                    else
+                                    {
+                                        <label class="badge badge-success">Is Active</label>
+                                    }
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
